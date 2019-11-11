@@ -1,12 +1,12 @@
-package api.service;
+package com.compalex.bookLibrary.api.service;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import api.model.IBook;
-import utility.Constants;
-import utility.Constants.RequestSort;
-import utility.Constants.StaleBookSort;
+import com.compalex.bookLibrary.api.model.IBook;
+import com.compalex.bookLibrary.utility.Constants;
+import com.compalex.bookLibrary.utility.Constants.RequestSort;
+import com.compalex.bookLibrary.utility.Constants.StaleBookSort;
 
 public interface IBookService {
     Map<IBook, Integer> getAllBooks(Constants.BookSort sort) throws Exception;

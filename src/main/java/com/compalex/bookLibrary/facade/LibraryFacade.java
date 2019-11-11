@@ -1,22 +1,22 @@
-package facade;
+package com.compalex.bookLibrary.facade;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import api.annotations.Inject;
-import api.facade.ILibraryFacade;
-import api.model.IBook;
-import api.model.IBookRequest;
-import api.model.IOrder;
-import api.service.IBookService;
-import api.service.IOrderService;
-import api.service.IRequestService;
-import api.service.IStockService;
-import utility.Constants;
-import utility.Constants.BookSort;
-import utility.Constants.OrderSort;
-import utility.Constants.RequestSort;
-import utility.Constants.StaleBookSort;
+import com.compalex.bookLibrary.api.annotations.Inject;
+import com.compalex.bookLibrary.api.facade.ILibraryFacade;
+import com.compalex.bookLibrary.api.model.IBook;
+import com.compalex.bookLibrary.api.model.IBookRequest;
+import com.compalex.bookLibrary.api.model.IOrder;
+import com.compalex.bookLibrary.api.service.IBookService;
+import com.compalex.bookLibrary.api.service.IOrderService;
+import com.compalex.bookLibrary.api.service.IRequestService;
+import com.compalex.bookLibrary.api.service.IStockService;
+import com.compalex.bookLibrary.utility.Constants;
+import com.compalex.bookLibrary.utility.Constants.BookSort;
+import com.compalex.bookLibrary.utility.Constants.OrderSort;
+import com.compalex.bookLibrary.utility.Constants.RequestSort;
+import com.compalex.bookLibrary.utility.Constants.StaleBookSort;
 
 public class LibraryFacade implements ILibraryFacade {
     private static ILibraryFacade instance;

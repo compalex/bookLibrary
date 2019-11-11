@@ -1,4 +1,4 @@
-package api.model;
+package com.compalex.bookLibrary.api.model;
 
 import java.util.Date;
 

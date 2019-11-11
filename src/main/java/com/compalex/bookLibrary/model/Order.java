@@ -1,17 +1,13 @@
-package model;
+package com.compalex.bookLibrary.model;
 
 import java.util.Date;
-import api.annotations.Columns;
-import api.model.IOrder;
+import com.compalex.bookLibrary.api.model.IOrder;
 
 public class Order implements IOrder {
-    @Columns(name = "order_id")
+
     private Integer id;
-    @Columns(name = "date")
     private Date orderDate;
-    @Columns(name = "price")
     private Double price;
-    @Columns(name = "status")
     private String status;
     
     public Order() {

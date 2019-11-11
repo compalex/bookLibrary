@@ -1,10 +1,10 @@
-package api.annotations;
+package com.compalex.bookLibrary.api.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import utility.Constants;
+import com.compalex.bookLibrary.utility.Constants;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)

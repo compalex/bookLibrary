@@ -1,12 +1,11 @@
-package model;
+package com.compalex.bookLibrary.model;
 
-import api.annotations.Columns;
-import api.model.IBookRequest;
+import com.compalex.bookLibrary.api.model.IBookRequest;
 
 public class BookRequest implements IBookRequest {
-    @Columns(name = "request_id")
+
     private Integer requestId;
-    @Columns(name = "book_id")
+
     private Integer bookId;
     
     public BookRequest() {

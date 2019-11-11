@@ -1,11 +1,11 @@
-package service;
+package com.compalex.bookLibrary.service;
 
 import java.util.List;
-import api.annotations.Inject;
-import api.dao.IStockDAO;
-import api.model.IBookInStock;
-import api.service.IStockService;
-import utility.Constants;
+import com.compalex.bookLibrary.api.annotations.Inject;
+import com.compalex.bookLibrary.api.dao.IStockDAO;
+import com.compalex.bookLibrary.api.model.IBookInStock;
+import com.compalex.bookLibrary.api.service.IStockService;
+import com.compalex.bookLibrary.utility.Constants;
 
 public class StockService implements IStockService {
     @Inject(layer = Constants.Layer.DAO, type = Constants.Type.STOCK) 

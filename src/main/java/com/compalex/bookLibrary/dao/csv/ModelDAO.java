@@ -1,4 +1,4 @@
-package dao.csv;
+package com.compalex.bookLibrary.dao.csv;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,8 +8,8 @@ import java.io.FileWriter;
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import api.dao.IModelDAO;
-import api.model.IModel;
+import com.compalex.bookLibrary.api.dao.IModelDAO;
+import com.compalex.bookLibrary.api.model.IModel;
 
 public class ModelDAO implements IModelDAO {
     protected String pathName;

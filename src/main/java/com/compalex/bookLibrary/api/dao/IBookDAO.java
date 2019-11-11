@@ -1,7 +1,7 @@
-package api.dao;
+package com.compalex.bookLibrary.api.dao;
 
 import java.util.List;
-import api.model.IBook;
+import com.compalex.bookLibrary.api.model.IBook;
 
 public interface IBookDAO {
     List<IBook> getAllBooks() throws Exception;

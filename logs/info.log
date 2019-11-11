@@ -1,8 +1,4 @@
-[TRACE] 2019-11-10 19:55:05.094 [main] InjectionHandler - here
-[TRACE] 2019-11-10 19:55:05.216 [main] InjectionHandler - inside di
-[TRACE] 2019-11-10 19:55:05.228 [main] InjectionHandler - inside di
-[TRACE] 2019-11-10 19:55:05.230 [main] InjectionHandler - inside di
-[TRACE] 2019-11-10 19:55:05.230 [main] InjectionHandler - inside di
-[TRACE] 2019-11-10 19:55:05.231 [main] InjectionHandler - inside di
-[ERROR] 2019-11-10 19:55:47.277 [main] InjectionHandler - error di
-[ERROR] 2019-11-10 20:01:26.957 [main] InjectionHandler - error di
+[WARN ] 2019-11-11 13:17:37.218 [main] InjectionHandler - java.lang.ClassNotFoundException: model.Book
+[TRACE] 2019-11-11 13:17:37.222 [main] InjectionHandler - java.lang.ClassNotFoundException: model.BookInStock
+[ERROR] 2019-11-11 13:18:05.705 [main] InjectionHandler - java.lang.ClassNotFoundException: model.Book
+[ERROR] 2019-11-11 13:18:05.709 [main] InjectionHandler - java.lang.ClassNotFoundException: model.BookInStock

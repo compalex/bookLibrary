@@ -1,8 +1,8 @@
-package api.dao;
+package com.compalex.bookLibrary.api.dao;
 
 import java.util.Date;
 import java.util.List;
-import api.model.IOrder;
+import com.compalex.bookLibrary.api.model.IOrder;
 
 public interface IOrderDAO {
     public List<IOrder> getAllOrders() throws Exception;

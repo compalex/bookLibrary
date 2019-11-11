@@ -1,10 +1,10 @@
-package dao.ser;
+package com.compalex.bookLibrary.dao.ser;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.util.List;
-import api.dao.IRequestDAO;
-import api.model.IBookRequest;
+import com.compalex.bookLibrary.api.dao.IRequestDAO;
+import com.compalex.bookLibrary.api.model.IBookRequest;
 
 public class RequestDAO extends ModelDAO implements IRequestDAO {
 

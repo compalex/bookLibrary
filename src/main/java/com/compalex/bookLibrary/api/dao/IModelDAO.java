@@ -1,6 +1,6 @@
-package api.dao;
+package com.compalex.bookLibrary.api.dao;
 
-import api.model.IModel;
+import com.compalex.bookLibrary.api.model.IModel;
 
 public interface IModelDAO {
     boolean addRecord(IModel model) throws Exception;

@@ -1,10 +1,10 @@
-package dao.sql;
+package com.compalex.bookLibrary.dao.sql;
 
 import java.sql.Connection;
 import java.util.List;
-import api.dao.IStockDAO;
-import api.model.IBookInStock;
-import api.model.IModel;
+import com.compalex.bookLibrary.api.dao.IStockDAO;
+import com.compalex.bookLibrary.api.model.IBookInStock;
+import com.compalex.bookLibrary.api.model.IModel;
 
 public class StockDAO extends ModelDAO implements IStockDAO {
 

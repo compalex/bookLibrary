@@ -1,8 +1,8 @@
-package di;
+package com.compalex.bookLibrary.di;
 
-import api.di.IInjectStrategy;
-import service.ServiceFactory;
-import utility.Constants;
+import com.compalex.bookLibrary.api.di.IInjectStrategy;
+import com.compalex.bookLibrary.service.ServiceFactory;
+import com.compalex.bookLibrary.utility.Constants;
 
 public class StrategyInjectService implements IInjectStrategy {
     public Object getInjectObject(Constants.Type type) {

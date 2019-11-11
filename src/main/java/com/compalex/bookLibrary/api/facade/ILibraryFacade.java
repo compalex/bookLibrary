@@ -1,15 +1,15 @@
-package api.facade;
+package com.compalex.bookLibrary.api.facade;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import api.model.IBook;
-import api.model.IOrder;
-import api.model.IBookRequest;
-import utility.Constants.BookSort;
-import utility.Constants.OrderSort;
-import utility.Constants.RequestSort;
-import utility.Constants.StaleBookSort;
+import com.compalex.bookLibrary.api.model.IBook;
+import com.compalex.bookLibrary.api.model.IOrder;
+import com.compalex.bookLibrary.api.model.IBookRequest;
+import com.compalex.bookLibrary.utility.Constants.BookSort;
+import com.compalex.bookLibrary.utility.Constants.OrderSort;
+import com.compalex.bookLibrary.utility.Constants.RequestSort;
+import com.compalex.bookLibrary.utility.Constants.StaleBookSort;
 
 public interface ILibraryFacade {
     Map<IBook, Integer> getAllBooks(BookSort sort) throws Exception;

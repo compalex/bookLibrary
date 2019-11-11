@@ -1,7 +1,7 @@
-package model;
+package com.compalex.bookLibrary.model;
 
 import java.util.Date;
-import api.model.IBookInStock;
+import com.compalex.bookLibrary.api.model.IBookInStock;
 
 public class BookInStock implements IBookInStock {
     private Integer id;

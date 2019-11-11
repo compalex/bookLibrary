@@ -1,11 +1,11 @@
-package dao.csv;
+package com.compalex.bookLibrary.dao.csv;
 
 import java.io.File;
 import java.util.List;
-import api.dao.IBookDAO;
-import api.model.IBook;
-import model.Book;
-import utility.Converter;
+import com.compalex.bookLibrary.api.dao.IBookDAO;
+import com.compalex.bookLibrary.api.model.IBook;
+import com.compalex.bookLibrary.model.Book;
+import com.compalex.bookLibrary.utility.Converter;
 
 public class BookDAO extends ModelDAO implements IBookDAO {
     

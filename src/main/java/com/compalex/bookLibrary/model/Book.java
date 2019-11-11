@@ -1,19 +1,18 @@
-package model;
+package com.compalex.bookLibrary.model;
 
 import java.util.Date;
-import api.annotations.Columns;
-import api.model.IBook;
+import com.compalex.bookLibrary.api.model.IBook;
 
 public class Book implements IBook {
-    @Columns(name = "book_id")
+    
     private Integer id;
-    @Columns(name = "title")
+    
     private String title;
-    @Columns(name = "publication_date")
+    
     private Date date;
-    @Columns(name = "price")
+    
     private Double price;
-    @Columns(name = "description")
+    
     private String description;
     
     public Book() {  

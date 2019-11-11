@@ -1,4 +1,4 @@
-package utility;
+package com.compalex.bookLibrary.utility;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,9 +17,9 @@ import java.util.List;
 import java.util.Map;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import api.annotations.Columns;
-import api.model.IBookInStock;
-import di.InjectionHandler;
+
+import com.compalex.bookLibrary.api.model.IBookInStock;
+import com.compalex.bookLibrary.di.InjectionHandler;
 
 public class Converter {
     private static Logger logger = LogManager.getLogger(InjectionHandler.class);
@@ -32,8 +32,8 @@ public class Converter {
         
         for(Field field : fields) {
             field.setAccessible(true);
-            String name = field.getAnnotation(Columns.class).name();
-            map.put(name, field);
+            //String name = field.getAnnotation(Columns.class).name();
+            //map.put(name, field);
         }
         Constructor<T> constructor = classType.getConstructor();
         

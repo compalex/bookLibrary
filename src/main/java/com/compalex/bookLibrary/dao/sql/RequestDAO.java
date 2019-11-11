@@ -1,15 +1,15 @@
-package dao.sql;
+package com.compalex.bookLibrary.dao.sql;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
-import api.dao.IRequestDAO;
-import api.model.IBookRequest;
-import model.BookRequest;
-import utility.Converter;
-import utility.SQLs;
-import utility.Constants.RequestSort;
+import com.compalex.bookLibrary.api.dao.IRequestDAO;
+import com.compalex.bookLibrary.api.model.IBookRequest;
+import com.compalex.bookLibrary.model.BookRequest;
+import com.compalex.bookLibrary.utility.Converter;
+import com.compalex.bookLibrary.utility.SQLs;
+import com.compalex.bookLibrary.utility.Constants.RequestSort;
 
 public class RequestDAO extends ModelDAO implements IRequestDAO {
 

@@ -1,15 +1,15 @@
-package dao.sql;
+package com.compalex.bookLibrary.dao.sql;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
-import api.dao.IBookDAO;
-import api.model.IBook;
-import model.Book;
-import utility.Constants.BookSort;
-import utility.Converter;
-import utility.SQLs;
+import com.compalex.bookLibrary.api.dao.IBookDAO;
+import com.compalex.bookLibrary.api.model.IBook;
+import com.compalex.bookLibrary.model.Book;
+import com.compalex.bookLibrary.utility.Constants.BookSort;
+import com.compalex.bookLibrary.utility.Converter;
+import com.compalex.bookLibrary.utility.SQLs;
 
 public class BookDAO extends ModelDAO implements IBookDAO {
 

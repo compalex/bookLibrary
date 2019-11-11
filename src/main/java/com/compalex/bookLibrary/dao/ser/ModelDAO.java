@@ -1,10 +1,10 @@
-package dao.ser;
+package com.compalex.bookLibrary.dao.ser;
 
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
-import api.dao.IModelDAO;
-import api.model.IModel;
+import com.compalex.bookLibrary.api.dao.IModelDAO;
+import com.compalex.bookLibrary.api.model.IModel;
 
 public class ModelDAO implements IModelDAO {
     protected String pathName;

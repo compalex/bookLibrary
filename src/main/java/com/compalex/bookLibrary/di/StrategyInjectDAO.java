@@ -1,10 +1,10 @@
-package di;
+package com.compalex.bookLibrary.di;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import api.di.IInjectStrategy;
-import dao.DAOFactory;
-import utility.Constants;
+import com.compalex.bookLibrary.api.di.IInjectStrategy;
+import com.compalex.bookLibrary.dao.DAOFactory;
+import com.compalex.bookLibrary.utility.Constants;
 
 public class StrategyInjectDAO implements IInjectStrategy {
     private static Logger logger = LogManager.getLogger(InjectionHandler.class);

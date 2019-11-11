@@ -1,8 +1,8 @@
-package api.service;
+package com.compalex.bookLibrary.api.service;
 
 import java.util.List;
-import api.model.IOrder;
-import utility.Constants;
+import com.compalex.bookLibrary.api.model.IOrder;
+import com.compalex.bookLibrary.utility.Constants;
 
 public interface IOrderService {
     

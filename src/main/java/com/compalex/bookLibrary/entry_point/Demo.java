@@ -1,4 +1,4 @@
-package entry_point;
+package com.compalex.bookLibrary.entry_point;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -6,15 +6,15 @@ import java.util.List;
 import java.util.Map;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import api.facade.ILibraryFacade;
-import api.model.IBook;
-import api.model.IOrder;
-import di.InjectionHandler;
-import facade.LibraryFacade;
-import utility.Constants.BookSort;
-import utility.Constants.OrderSort;
-import utility.Constants.RequestSort;
-import utility.Constants.StaleBookSort;
+import com.compalex.bookLibrary.api.facade.ILibraryFacade;
+import com.compalex.bookLibrary.api.model.IBook;
+import com.compalex.bookLibrary.api.model.IOrder;
+import com.compalex.bookLibrary.di.InjectionHandler;
+import com.compalex.bookLibrary.facade.LibraryFacade;
+import com.compalex.bookLibrary.utility.Constants.BookSort;
+import com.compalex.bookLibrary.utility.Constants.OrderSort;
+import com.compalex.bookLibrary.utility.Constants.RequestSort;
+import com.compalex.bookLibrary.utility.Constants.StaleBookSort;
 
 public class Demo {
     private static Logger logger = LogManager.getLogger(InjectionHandler.class);

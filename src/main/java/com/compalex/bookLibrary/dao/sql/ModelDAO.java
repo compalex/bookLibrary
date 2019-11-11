@@ -1,8 +1,8 @@
-package dao.sql;
+package com.compalex.bookLibrary.dao.sql;
 
 import java.sql.Connection;
-import api.dao.IModelDAO;
-import api.model.IModel;
+import com.compalex.bookLibrary.api.dao.IModelDAO;
+import com.compalex.bookLibrary.api.model.IModel;
 
 public class ModelDAO implements IModelDAO {
     protected Connection connection;

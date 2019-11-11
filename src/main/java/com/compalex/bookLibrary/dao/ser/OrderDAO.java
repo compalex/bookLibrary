@@ -1,11 +1,11 @@
-package dao.ser;
+package com.compalex.bookLibrary.dao.ser;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.util.Date;
 import java.util.List;
-import api.dao.IOrderDAO;
-import api.model.IOrder;
+import com.compalex.bookLibrary.api.dao.IOrderDAO;
+import com.compalex.bookLibrary.api.model.IOrder;
 
 public class OrderDAO extends ModelDAO implements IOrderDAO {
 

@@ -1,4 +1,4 @@
-package utility;
+package com.compalex.bookLibrary.utility;
 
 import java.io.FileInputStream;
 import java.sql.Connection;
@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import di.InjectionHandler;
+import com.compalex.bookLibrary.di.InjectionHandler;
 
 public class JDBCInstaller {
     private static JDBCInstaller instance;

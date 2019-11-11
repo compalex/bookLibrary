@@ -1,8 +1,8 @@
-package utility;
+package com.compalex.bookLibrary.utility;
 
 import java.io.FileInputStream;
 import java.util.Properties;
-import utility.Constants.Database;
+import com.compalex.bookLibrary.utility.Constants.Database;
 
 public class ConfigHandler {
     private static ConfigHandler instance;

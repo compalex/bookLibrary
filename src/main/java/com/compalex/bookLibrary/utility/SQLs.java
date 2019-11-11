@@ -1,4 +1,4 @@
-package utility;
+package com.compalex.bookLibrary.utility;
 
 public class SQLs {
 

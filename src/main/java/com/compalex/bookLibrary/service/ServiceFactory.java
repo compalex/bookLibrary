@@ -1,9 +1,9 @@
-package service;
+package com.compalex.bookLibrary.service;
 
-import api.service.IBookService;
-import api.service.IOrderService;
-import api.service.IRequestService;
-import api.service.IStockService;
+import com.compalex.bookLibrary.api.service.IBookService;
+import com.compalex.bookLibrary.api.service.IOrderService;
+import com.compalex.bookLibrary.api.service.IRequestService;
+import com.compalex.bookLibrary.api.service.IStockService;
 
 public class ServiceFactory {
     public static IBookService getBookService() {

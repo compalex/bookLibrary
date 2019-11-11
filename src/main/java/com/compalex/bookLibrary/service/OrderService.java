@@ -1,12 +1,12 @@
-package service;
+package com.compalex.bookLibrary.service;
 
 import java.util.List;
-import api.annotations.Inject;
-import api.dao.IOrderDAO;
-import api.model.IOrder;
-import api.service.IOrderService;
-import utility.Constants;
-import utility.Constants.OrderSort;
+import com.compalex.bookLibrary.api.annotations.Inject;
+import com.compalex.bookLibrary.api.dao.IOrderDAO;
+import com.compalex.bookLibrary.api.model.IOrder;
+import com.compalex.bookLibrary.api.service.IOrderService;
+import com.compalex.bookLibrary.utility.Constants;
+import com.compalex.bookLibrary.utility.Constants.OrderSort;
 
 public class OrderService implements IOrderService {
     @Inject(layer = Constants.Layer.DAO, type = Constants.Type.ORDER) 

@@ -1,11 +1,11 @@
-package dao.csv;
+package com.compalex.bookLibrary.dao.csv;
 
 import java.io.File;
 import java.util.List;
-import api.dao.IStockDAO;
-import api.model.IBookInStock;
-import model.BookInStock;
-import utility.Converter;
+import com.compalex.bookLibrary.api.dao.IStockDAO;
+import com.compalex.bookLibrary.api.model.IBookInStock;
+import com.compalex.bookLibrary.model.BookInStock;
+import com.compalex.bookLibrary.utility.Converter;
 
 public class StockDAO extends ModelDAO implements IStockDAO {
 

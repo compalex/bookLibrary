@@ -1,26 +1,26 @@
-package service;
+package com.compalex.bookLibrary.service;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import api.annotations.Inject;
-import api.dao.IBookDAO;
-import api.dao.IStockDAO;
-import api.model.IBook;
-import api.model.IBookInStock;
-import api.model.IBookRequest;
-import api.service.IBookService;
-import api.service.IRequestService;
-import api.service.IStockService;
-import model.BookInStock;
-import utility.Constants.BookSort;
-import utility.Constants.RequestSort;
-import utility.Constants.StaleBookSort;
-import utility.ConfigHandler;
-import utility.Constants;
-import utility.Converter;
+import com.compalex.bookLibrary.api.annotations.Inject;
+import com.compalex.bookLibrary.api.dao.IBookDAO;
+import com.compalex.bookLibrary.api.dao.IStockDAO;
+import com.compalex.bookLibrary.api.model.IBook;
+import com.compalex.bookLibrary.api.model.IBookInStock;
+import com.compalex.bookLibrary.api.model.IBookRequest;
+import com.compalex.bookLibrary.api.service.IBookService;
+import com.compalex.bookLibrary.api.service.IRequestService;
+import com.compalex.bookLibrary.api.service.IStockService;
+import com.compalex.bookLibrary.model.BookInStock;
+import com.compalex.bookLibrary.utility.Constants.BookSort;
+import com.compalex.bookLibrary.utility.Constants.RequestSort;
+import com.compalex.bookLibrary.utility.Constants.StaleBookSort;
+import com.compalex.bookLibrary.utility.ConfigHandler;
+import com.compalex.bookLibrary.utility.Constants;
+import com.compalex.bookLibrary.utility.Converter;
 
 public class BookService implements IBookService {
     private static IBookService instance;
@@ -123,7 +123,7 @@ public class BookService implements IBookService {
             for(IBookInStock bookInStock : booksInStock) {
                 if(book.getId() == bookInStock.getBookId()) {
                     if(map.get(book) == null) {
-                        map.put(book, new ArrayList<>());
+                      //  map.put(book, new ArrayList<>());
                     }
                     map.get(book).add(bookInStock.getDate());
                 }

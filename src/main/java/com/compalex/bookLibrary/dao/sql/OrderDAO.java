@@ -1,4 +1,4 @@
-package dao.sql;
+package com.compalex.bookLibrary.dao.sql;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -7,12 +7,12 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import api.dao.IOrderDAO;
-import api.model.IOrder;
-import model.Order;
-import utility.Converter;
-import utility.SQLs;
-import utility.Constants.OrderSort;
+import com.compalex.bookLibrary.api.dao.IOrderDAO;
+import com.compalex.bookLibrary.api.model.IOrder;
+import com.compalex.bookLibrary.model.Order;
+import com.compalex.bookLibrary.utility.Converter;
+import com.compalex.bookLibrary.utility.SQLs;
+import com.compalex.bookLibrary.utility.Constants.OrderSort;
 
 public class OrderDAO extends ModelDAO implements IOrderDAO {
     
