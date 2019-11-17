@@ -1,37 +1,28 @@
 package com.compalex.bookLibrary.dao.sql;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import com.compalex.bookLibrary.api.dao.IOrderDAO;
-import com.compalex.bookLibrary.api.model.IOrder;
 import com.compalex.bookLibrary.model.Order;
-import com.compalex.bookLibrary.utility.Converter;
-import com.compalex.bookLibrary.utility.SQLs;
-import com.compalex.bookLibrary.utility.Constants.OrderSort;
+import com.compalex.bookLibrary.utility.HibernateUtil;
 
 public class OrderDAO extends ModelDAO implements IOrderDAO {
+    private Class<Order> classType;
     
-    public OrderDAO(Connection connection) {
-        super(connection);
+    public OrderDAO() {
+        classType = Order.class;
     }
 
     @Override
-    public List<IOrder> getAllOrders() throws Exception {
-        OrderSort sort = OrderSort.BY_DATE;
-        Class<Order> classType = Order.class;
-        String sql = SQLs.getAllOrdersSQL(sort);
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(sql);
-        return Converter.getListFromResultSet(classType, resultSet);
+    public List<Order> getAllOrders() throws Exception {
+        return HibernateUtil.fetchAllObjects(classType);
     }
 
     @Override
-    public List<IOrder> getCompletedOrdersOverTime(Date dateFrom, Date dateTo) {
+    public List<Order> getCompletedOrdersOverTime(Date dateFrom, Date dateTo) {
         return null;
     }
 
@@ -46,15 +37,15 @@ public class OrderDAO extends ModelDAO implements IOrderDAO {
     }
 
     @Override
-    public IOrder getOrderDetails() {
+    public Order getOrderDetails() {
         return null;
     }
 
     @Override
-    public boolean addOrder(IOrder order) {
+    public boolean addOrder(Order order) {
         Statement statement = null;
         try {
-            statement = connection.createStatement();
+            //statement = connection.createStatement();
             statement.executeUpdate("INSERT INTO `orders` (`date`, `price`, `status`) VALUES ('"
                     + new SimpleDateFormat("yyyy/MM/dd").format(order.getOrderDate())
                     + "', "
@@ -77,12 +68,12 @@ public class OrderDAO extends ModelDAO implements IOrderDAO {
     }
 
     @Override
-    public boolean completeOrder(IOrder order) {
+    public boolean completeOrder(Order order) {
         return false;
     }
 
     @Override
-    public boolean cancelOrder(IOrder book) {
+    public boolean cancelOrder(Order book) {
         return false;
     }
 }

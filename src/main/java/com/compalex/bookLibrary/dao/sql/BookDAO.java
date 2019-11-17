@@ -1,33 +1,22 @@
 package com.compalex.bookLibrary.dao.sql;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.List;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import com.compalex.bookLibrary.api.dao.IBookDAO;
-import com.compalex.bookLibrary.api.model.IBook;
 import com.compalex.bookLibrary.model.Book;
-import com.compalex.bookLibrary.utility.Constants.BookSort;
-import com.compalex.bookLibrary.utility.Converter;
-import com.compalex.bookLibrary.utility.SQLs;
+import com.compalex.bookLibrary.utility.HibernateUtil;
 
 public class BookDAO extends ModelDAO implements IBookDAO {
-
-    public BookDAO(Connection connection) {
-        super(connection);
+    private Class<Book> classType;
+    
+    public BookDAO() {
+        classType = Book.class;
     }
 
     @Override
-    public List<IBook> getAllBooks() throws Exception {
-        BookSort sort = BookSort.BY_PRICE;
-        Class<Book> classType = Book.class;
-        String sql = SQLs.getAllBooksSQL(sort);
-        Statement statement = connection.createStatement(
-                ResultSet.TYPE_SCROLL_INSENSITIVE, 
-                ResultSet.CONCUR_READ_ONLY);
-        ResultSet resultSet = statement.executeQuery(sql);
-        List<IBook> list = Converter.getListFromResultSet(classType, resultSet);
-        return list;
+    public List<Book> getAllBooks() throws Exception {        
+        return HibernateUtil.fetchAllObjects(classType);
     }
 
     @Override
@@ -36,7 +25,7 @@ public class BookDAO extends ModelDAO implements IBookDAO {
     }
 
     @Override
-    public boolean addRecord(IBook book) throws Exception {
+    public boolean addRecord(Book book) throws Exception {
         return super.addRecord(book);
     }
 }

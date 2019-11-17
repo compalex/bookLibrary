@@ -1,4 +1,4 @@
-[WARN ] 2019-11-11 13:17:37.218 [main] InjectionHandler - java.lang.ClassNotFoundException: model.Book
-[TRACE] 2019-11-11 13:17:37.222 [main] InjectionHandler - java.lang.ClassNotFoundException: model.BookInStock
-[ERROR] 2019-11-11 13:18:05.705 [main] InjectionHandler - java.lang.ClassNotFoundException: model.Book
-[ERROR] 2019-11-11 13:18:05.709 [main] InjectionHandler - java.lang.ClassNotFoundException: model.BookInStock
+[ERROR] 2019-11-16 10:35:39.003 [main] SqlExceptionHelper - Unknown column 'requests' in 'where clause'
+[ERROR] 2019-11-16 10:43:53.251 [main] SqlExceptionHelper - Unknown column 'request' in 'where clause'
+[ERROR] 2019-11-16 14:46:34.352 [main] SqlExceptionHelper - Unknown column 'request' in 'where clause'
+[ERROR] 2019-11-16 19:39:57.917 [main] SqlExceptionHelper - Duplicate entry '1' for key 'PRIMARY'

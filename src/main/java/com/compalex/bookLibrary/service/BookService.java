@@ -1,6 +1,5 @@
 package com.compalex.bookLibrary.service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -8,15 +7,11 @@ import java.util.Map;
 import com.compalex.bookLibrary.api.annotations.Inject;
 import com.compalex.bookLibrary.api.dao.IBookDAO;
 import com.compalex.bookLibrary.api.dao.IStockDAO;
-import com.compalex.bookLibrary.api.model.IBook;
-import com.compalex.bookLibrary.api.model.IBookInStock;
-import com.compalex.bookLibrary.api.model.IBookRequest;
 import com.compalex.bookLibrary.api.service.IBookService;
-import com.compalex.bookLibrary.api.service.IRequestService;
 import com.compalex.bookLibrary.api.service.IStockService;
-import com.compalex.bookLibrary.model.BookInStock;
+import com.compalex.bookLibrary.model.Book;
+import com.compalex.bookLibrary.model.BookInstance;
 import com.compalex.bookLibrary.utility.Constants.BookSort;
-import com.compalex.bookLibrary.utility.Constants.RequestSort;
 import com.compalex.bookLibrary.utility.Constants.StaleBookSort;
 import com.compalex.bookLibrary.utility.ConfigHandler;
 import com.compalex.bookLibrary.utility.Constants;
@@ -41,26 +36,15 @@ public class BookService implements IBookService {
     }
     
     @Override
-    public Map<IBook, Integer> getAllBooks(BookSort sort) throws Exception {
-        List<IBook> allBooks = bookDAO.getAllBooks();
-        IStockService stockService = StockService.getInstance();
-        List<IBookInStock> booksInStock = stockService.getStock();
-        return getBookStockMap(allBooks, booksInStock);
-    }
-
-    @Override
-    public Map<IBook, Integer> getRequests(RequestSort sort) throws Exception {
-        List<IBook> allBooks = bookDAO.getAllBooks();
-        IRequestService requestService = RequestService.getInstance();
-        List<IBookRequest> requests = requestService.getAllRequests();
-        return getBookRequestMap(allBooks, requests);
+    public List<Book> getAllBooks(BookSort sort) throws Exception {
+        return bookDAO.getAllBooks();
     }
     
     @Override
-    public Map<IBook, List<Date>> getStaleBooks(StaleBookSort sort) throws Exception {
-        List<IBook> allBooks = bookDAO.getAllBooks();
+    public Map<Book, List<Date>> getStaleBooks(StaleBookSort sort) throws Exception {
+        List<Book> allBooks = bookDAO.getAllBooks();
         IStockService stockService = StockService.getInstance();
-        List<IBookInStock> booksInStock = stockService.getStock();
+        List<BookInstance> booksInStock = stockService.getStock();
         return getStaleBooksMap(allBooks, booksInStock);
     }
     
@@ -70,62 +54,30 @@ public class BookService implements IBookService {
     }
     
     @Override
-    public boolean addBookToStock(IBook book) throws Exception {
-        List<IBookInStock> booksInStock = StockService.getInstance().getStock();
-        int previousId = booksInStock.get(booksInStock.size() - 1).getId();        
+    public boolean addBookToStock(Book book) throws Exception {    
         if(ConfigHandler.getInstance().getConfigs().autoRequest) {
-            IRequestService requestService = RequestService.getInstance();
-            requestService.deleteRequests(book);
-        }
-        return stockDAO.addRecord(new BookInStock(previousId + 1, book.getId(), new Date()));
-    }
-    
-    private Map<IBook, Integer> getBookStockMap(List<IBook> books, List<IBookInStock> booksInStock) {
-        Map<IBook, Integer> map = new HashMap<>();
-        
-        for(IBook book : books) {
-            int quantity = 0;
             
-            for(IBookInStock bookInStock : booksInStock) {
-                if(book.getId() == bookInStock.getBookId()) {
-                    quantity++;
-                }
-            }
-            map.put(book, quantity);
+            StockService.getInstance().deleteRequests(book);
         }
-        return map;
-    }
-    
-    private Map<IBook, Integer> getBookRequestMap(List<IBook> books, List<IBookRequest> requests) {
-        Map<IBook, Integer> map = new HashMap<>();
-        
-        for(IBook book : books) {
-            int quantity = 0;
-            
-            for(IBookRequest request : requests) {
-                if(book.getId() == request.getBookId()) {
-                    quantity++;
-                }
-            }
-            if(quantity > 0) {
-                map.put(book, quantity); 
-            }
-        }
-        return map;
+        BookInstance bookInstance = new BookInstance();
+        bookInstance.setBook(book);
+        bookInstance.setStoreDate(new Date());
+        bookInstance.setBookType("stock");
+        return stockDAO.addRecord(bookInstance);
     }
 
-    private Map<IBook, List<Date>> getStaleBooksMap(List<IBook> books, List<IBookInStock> booksInStock) throws Exception {
-        booksInStock = Converter.getStaleBooks(booksInStock, 
+    private Map<Book, List<Date>> getStaleBooksMap(List<Book> books, List<BookInstance> bookInstance) throws Exception {
+        bookInstance = Converter.getStaleBooks(bookInstance, 
                 ConfigHandler.getInstance().getConfigs().unsoldMonth);
-        Map<IBook, List<Date>> map = new HashMap<>();
+        Map<Book, List<Date>> map = new HashMap<>();
         
-        for(IBook book : books) {
-            for(IBookInStock bookInStock : booksInStock) {
-                if(book.getId() == bookInStock.getBookId()) {
+        for(Book book : books) {
+            for(BookInstance bookInStock : bookInstance) {
+                if(true) {
                     if(map.get(book) == null) {
                       //  map.put(book, new ArrayList<>());
                     }
-                    map.get(book).add(bookInStock.getDate());
+                    map.get(book).add(bookInStock.getStoreDate());
                 }
             }
         }

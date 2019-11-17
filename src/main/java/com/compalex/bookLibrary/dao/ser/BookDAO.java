@@ -7,8 +7,8 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.compalex.bookLibrary.api.dao.IBookDAO;
-import com.compalex.bookLibrary.api.model.IBook;
 import com.compalex.bookLibrary.di.InjectionHandler;
+import com.compalex.bookLibrary.model.Book;
 import com.compalex.bookLibrary.utility.Constants;
 
 public class BookDAO extends ModelDAO implements IBookDAO {
@@ -19,12 +19,12 @@ public class BookDAO extends ModelDAO implements IBookDAO {
     }
 
     @Override
-    public List<IBook> getAllBooks() throws IOException {
+    public List<Book> getAllBooks() throws IOException {
         ObjectInputStream in = null;
         try {
             FileInputStream file = new FileInputStream(pathName);
             in = new ObjectInputStream(file);
-            return (List<IBook>)in.readObject();
+            return (List<Book>)in.readObject();
         } catch (IOException | ClassNotFoundException e) {
             logger.error(e);
         } finally {
@@ -35,9 +35,9 @@ public class BookDAO extends ModelDAO implements IBookDAO {
 
     @Override
     public String getBookDescriprion(int bookId) throws Exception {
-        List<IBook> allBooks = getAllBooks();
+        List<Book> allBooks = getAllBooks();
         
-        for(IBook book : allBooks) {
+        for(Book book : allBooks) {
             if(book.getId() == bookId) {
                 return book.getDescription();
             }
@@ -46,7 +46,7 @@ public class BookDAO extends ModelDAO implements IBookDAO {
     }
 
     @Override
-    public boolean addRecord(IBook book) throws Exception {
+    public boolean addRecord(Book book) throws Exception {
         return super.addRecord(book);
     }
 }

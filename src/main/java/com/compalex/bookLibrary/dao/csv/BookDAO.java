@@ -3,7 +3,6 @@ package com.compalex.bookLibrary.dao.csv;
 import java.io.File;
 import java.util.List;
 import com.compalex.bookLibrary.api.dao.IBookDAO;
-import com.compalex.bookLibrary.api.model.IBook;
 import com.compalex.bookLibrary.model.Book;
 import com.compalex.bookLibrary.utility.Converter;
 
@@ -14,11 +13,11 @@ public class BookDAO extends ModelDAO implements IBookDAO {
     }
 
     @Override
-    public List<IBook> getAllBooks() throws Exception {
+    public List<Book> getAllBooks() throws Exception {
         File file = new File(pathName);
         List<List<String>> records = Converter.getRecordsCVS(file);                
         Class<Book> classType = Book.class;
-        List<IBook> list = Converter.getListFromListOfList(classType, records);
+        List<Book> list = Converter.getListFromListOfList(classType, records);
         return list;
     }
 
@@ -28,7 +27,7 @@ public class BookDAO extends ModelDAO implements IBookDAO {
     }
 
     @Override
-    public boolean addRecord(IBook book) throws Exception {
+    public boolean addRecord(Book book) throws Exception {
         return super.addRecord(book);
     }
 }

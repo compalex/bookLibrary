@@ -1,8 +1,13 @@
 package com.compalex.bookLibrary.api.service;
 
 import java.util.List;
-import com.compalex.bookLibrary.api.model.IBookInStock;
+import java.util.Map;
+
+import com.compalex.bookLibrary.model.Book;
+import com.compalex.bookLibrary.model.BookInstance;
 
 public interface IStockService {
-    List<IBookInStock> getStock() throws Exception;
+    List<BookInstance> getStock() throws Exception;
+    Map<Book, Integer> getBookRequests();
+    void deleteRequests(Book book);
 }

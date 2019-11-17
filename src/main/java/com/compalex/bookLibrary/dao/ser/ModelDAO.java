@@ -33,7 +33,7 @@ public class ModelDAO implements IModelDAO {
     }
 
     @Override
-    public boolean deleteRecord(int id) {
+    public boolean deleteRecord(IModel model) {
         // TODO Auto-generated method stub
         return false;
     }

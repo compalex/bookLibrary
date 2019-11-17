@@ -19,8 +19,9 @@
     </Appenders>
     
     <Loggers>
-        <Logger name="com.compalex.bookLibrary.di" level="trace" additivity="true">
-            <appender-ref ref="fileLogger" level="trace" />
+
+        <Logger name="org.hibernate" level="error" additivity="true">
+            <appender-ref ref="fileLogger" level="error" />
         </Logger>
         <Root level="trace" additivity="false">
             <appender-ref ref="console" />

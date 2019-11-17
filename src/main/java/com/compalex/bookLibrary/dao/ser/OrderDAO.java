@@ -5,7 +5,7 @@ import java.io.ObjectInputStream;
 import java.util.Date;
 import java.util.List;
 import com.compalex.bookLibrary.api.dao.IOrderDAO;
-import com.compalex.bookLibrary.api.model.IOrder;
+import com.compalex.bookLibrary.model.Order;
 
 public class OrderDAO extends ModelDAO implements IOrderDAO {
 
@@ -14,14 +14,14 @@ public class OrderDAO extends ModelDAO implements IOrderDAO {
     }
 
     @Override
-    public List<IOrder> getAllOrders() throws Exception {
+    public List<Order> getAllOrders() throws Exception {
         FileInputStream file = new FileInputStream(pathName);
         ObjectInputStream in = new ObjectInputStream(file);
-        return (List<IOrder>)in.readObject();
+        return (List<Order>)in.readObject();
     }
 
     @Override
-    public List<IOrder> getCompletedOrdersOverTime(Date dateFrom, Date dateTo) {
+    public List<Order> getCompletedOrdersOverTime(Date dateFrom, Date dateTo) {
         // TODO Auto-generated method stub
         return null;
     }
@@ -39,25 +39,25 @@ public class OrderDAO extends ModelDAO implements IOrderDAO {
     }
 
     @Override
-    public IOrder getOrderDetails() {
+    public Order getOrderDetails() {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public boolean addOrder(IOrder order) {
+    public boolean addOrder(Order order) {
         // TODO Auto-generated method stub
         return false;
     }
 
     @Override
-    public boolean completeOrder(IOrder order) {
+    public boolean completeOrder(Order order) {
         // TODO Auto-generated method stub
         return false;
     }
 
     @Override
-    public boolean cancelOrder(IOrder book) {
+    public boolean cancelOrder(Order book) {
         // TODO Auto-generated method stub
         return false;
     }

@@ -5,13 +5,12 @@ import java.util.List;
 import java.util.Map;
 import com.compalex.bookLibrary.api.annotations.Inject;
 import com.compalex.bookLibrary.api.facade.ILibraryFacade;
-import com.compalex.bookLibrary.api.model.IBook;
-import com.compalex.bookLibrary.api.model.IBookRequest;
-import com.compalex.bookLibrary.api.model.IOrder;
 import com.compalex.bookLibrary.api.service.IBookService;
 import com.compalex.bookLibrary.api.service.IOrderService;
-import com.compalex.bookLibrary.api.service.IRequestService;
 import com.compalex.bookLibrary.api.service.IStockService;
+import com.compalex.bookLibrary.model.Book;
+import com.compalex.bookLibrary.model.BookInstance;
+import com.compalex.bookLibrary.model.Order;
 import com.compalex.bookLibrary.utility.Constants;
 import com.compalex.bookLibrary.utility.Constants.BookSort;
 import com.compalex.bookLibrary.utility.Constants.OrderSort;
@@ -24,8 +23,6 @@ public class LibraryFacade implements ILibraryFacade {
     private IBookService bookService;
     @Inject(layer = Constants.Layer.SERVICE, type = Constants.Type.ORDER)
     private IOrderService orderService;
-    @Inject(layer = Constants.Layer.SERVICE, type = Constants.Type.REQUEST)
-    private IRequestService requestService;
     @Inject(layer = Constants.Layer.SERVICE, type = Constants.Type.STOCK)
     private IStockService stockService;
     
@@ -37,28 +34,28 @@ public class LibraryFacade implements ILibraryFacade {
     }       
     
     @Override
-    public IOrder getCopyOfOrder(int id) throws Exception {
+    public Order getCopyOfOrder(int id) throws Exception {
         return orderService.getCopyOfOrder(id);
     }
 
     @Override
-    public Map<IBook, Integer> getAllBooks(BookSort sort) throws Exception {
+    public List<Book> getAllBooks(BookSort sort) throws Exception {
         return bookService.getAllBooks(sort);
     }
 
     @Override
-    public Map<IBook, List<Date>> getStaleBooks(StaleBookSort sort) throws Exception {
+    public Map<Book, List<Date>> getStaleBooks(StaleBookSort sort) throws Exception {
         return bookService.getStaleBooks(sort);
     }
     
     @Override
-    public List<IOrder> getAllOrders(OrderSort sort) throws Exception {
+    public List<Order> getAllOrders(OrderSort sort) throws Exception {
         return orderService.getAllOrders(sort);
     }
 
     @Override
-    public Map<IBook, Integer> getAllRequests(RequestSort sort) throws Exception {
-        return bookService.getRequests(sort);
+    public Map<Book, Integer> getAllRequests(RequestSort sort) throws Exception {
+        return stockService.getBookRequests();
     }
 
     @Override
@@ -67,17 +64,22 @@ public class LibraryFacade implements ILibraryFacade {
     }
 
     @Override
-    public boolean addOrder(IOrder order) {
+    public boolean addOrder(Order order) {
         return orderService.addOrder(order);
     }
 
     @Override
-    public boolean addBookToStock(IBook book) throws Exception {
+    public boolean addBookToStock(Book book) throws Exception {
         return bookService.addBookToStock(book);
     }
 
     @Override
-    public boolean addRequest(IBookRequest request) {
+    public boolean addRequest(BookInstance request) {
         return false;
+    }
+
+    @Override
+    public Map<Book, Integer> getBookRequests(RequestSort byAlphabet) {
+        return stockService.getBookRequests();
     }
 }

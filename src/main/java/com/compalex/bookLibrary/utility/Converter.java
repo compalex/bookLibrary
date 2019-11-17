@@ -17,9 +17,8 @@ import java.util.List;
 import java.util.Map;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import com.compalex.bookLibrary.api.model.IBookInStock;
 import com.compalex.bookLibrary.di.InjectionHandler;
+import com.compalex.bookLibrary.model.BookInstance;
 
 public class Converter {
     private static Logger logger = LogManager.getLogger(InjectionHandler.class);
@@ -118,13 +117,13 @@ public class Converter {
         return records;
     }
 
-    public static List<IBookInStock> getStaleBooks(List<IBookInStock> booksInStock, int months) {
+    public static List<BookInstance> getStaleBooks(List<BookInstance> bookInstance, int months) {
         //convert months to milliseconds
         long diff = months * 30 * 24 * 60 * 60 * 1000l;
-        List<IBookInStock> staleBooks = new ArrayList<>();
+        List<BookInstance> staleBooks = new ArrayList<>();
         
-        for(IBookInStock book : booksInStock) {
-            if((new Date().getTime() - book.getDate().getTime()) >  diff) {
+        for(BookInstance book : bookInstance) {
+            if((new Date().getTime() - book.getStoreDate().getTime()) >  diff) {
                 staleBooks.add(book);
             }
         }

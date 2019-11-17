@@ -8,8 +8,9 @@ import org.reflections.Reflections;
 import org.reflections.scanners.FieldAnnotationsScanner;
 import org.reflections.util.ConfigurationBuilder;
 import com.compalex.bookLibrary.api.annotations.Inject;
-import com.compalex.bookLibrary.api.di.IInjectStrategy;
+import com.compalex.bookLibrary.api.di.InjectStrategy;
 import com.compalex.bookLibrary.utility.Constants;
+import com.compalex.bookLibrary.utility.Constants.Layer;
 import org.reflections.util.ClasspathHelper;
 
 public class InjectionHandler {   
@@ -20,18 +21,7 @@ public class InjectionHandler {
         System.out.println(fields);
         for(Field field : fields) {
             field.setAccessible(true);
-            IInjectStrategy injStrategy = null;
-            
-            switch(field.getAnnotation(Inject.class).layer()) {
-                case DAO:
-                    injStrategy = new StrategyInjectDAO();
-                    break;
-                case SERVICE:
-                    injStrategy = new StrategyInjectService(); 
-                    break;
-                default:
-                    break;
-            }
+            InjectStrategy injStrategy = getStrategy(field.getAnnotation(Inject.class).layer());
             try {
                 Object objToInject = injStrategy.getInjectObject(field.getAnnotation(Inject.class).type());
                 Object declaringObj = field.getDeclaringClass().getMethod(Constants.GET_INSTANCE_METHOD).invoke(null);
@@ -42,6 +32,17 @@ public class InjectionHandler {
         }
     }
     
+    private static InjectStrategy getStrategy(Layer layer) {
+        switch(layer) {
+            case DAO:
+                return new StrategyInjectDAO();
+            case SERVICE:
+                return new StrategyInjectService(); 
+            default:
+                return null;
+        }
+    }
+
     private static Set<Field> getAnnotatedFields() {
         ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
         configurationBuilder.setScanners(new FieldAnnotationsScanner());

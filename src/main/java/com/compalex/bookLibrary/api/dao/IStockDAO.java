@@ -1,10 +1,11 @@
 package com.compalex.bookLibrary.api.dao;
 
 import java.util.List;
-import com.compalex.bookLibrary.api.model.IBookInStock;
+import com.compalex.bookLibrary.model.BookInstance;
 
 public interface IStockDAO {
-    List<IBookInStock> getStock() throws Exception;
-    boolean addRecord(IBookInStock book) throws Exception;
-    
+    List<BookInstance> getStock() throws Exception;
+    boolean addRecord(BookInstance book) throws Exception;
+    List<BookInstance> getBookRequests();
+    boolean deleteRecord(BookInstance book);
 }

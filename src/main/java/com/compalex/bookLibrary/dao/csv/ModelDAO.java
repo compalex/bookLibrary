@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -47,7 +48,7 @@ public class ModelDAO implements IModelDAO {
     }
 
     @Override
-    public boolean deleteRecord(int id) throws Exception {
+    public boolean deleteRecord(IModel model) throws Exception {
         File file = new File(pathName);
         File tempFile = new File("temp.csv");
         BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -55,7 +56,7 @@ public class ModelDAO implements IModelDAO {
         String currentLine;
         
         while((currentLine = reader.readLine()) != null) {
-            if(currentLine.substring(0, currentLine.indexOf(",")).equals(Integer.toString(id))) {
+            if(currentLine.substring(0, currentLine.indexOf(",")).equals(Integer.toString(model.getId()))) {
                 continue;
             }
             writer.write(currentLine + System.getProperty("line.separator"));

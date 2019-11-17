@@ -2,7 +2,6 @@ package com.compalex.bookLibrary.service;
 
 import com.compalex.bookLibrary.api.service.IBookService;
 import com.compalex.bookLibrary.api.service.IOrderService;
-import com.compalex.bookLibrary.api.service.IRequestService;
 import com.compalex.bookLibrary.api.service.IStockService;
 
 public class ServiceFactory {
@@ -12,10 +11,6 @@ public class ServiceFactory {
     
     public static IOrderService getOrderService() {
         return OrderService.getInstance();
-    }
-    
-    public static IRequestService getRequestService() {
-        return RequestService.getInstance();
     }
     
     public static IStockService getStockService() {

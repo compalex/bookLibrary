@@ -8,8 +8,9 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.compalex.bookLibrary.api.dao.IStockDAO;
-import com.compalex.bookLibrary.api.model.IBookInStock;
 import com.compalex.bookLibrary.di.InjectionHandler;
+import com.compalex.bookLibrary.model.Book;
+import com.compalex.bookLibrary.model.BookInstance;
 
 public class StockDAO extends ModelDAO implements IStockDAO {
     private static Logger logger = LogManager.getLogger(InjectionHandler.class);
@@ -19,13 +20,13 @@ public class StockDAO extends ModelDAO implements IStockDAO {
     }
 
     @Override
-    public List<IBookInStock> getStock() throws IOException {
+    public List<BookInstance> getStock() throws IOException {
         FileInputStream file = null;
         ObjectInputStream in = null;
         try {
             file = new FileInputStream(pathName);
             in = new ObjectInputStream(file);
-            return (List<IBookInStock>)in.readObject();
+            return (List<BookInstance>)in.readObject();
         } catch (IOException e) {
             logger.error(e);
         } catch (ClassNotFoundException e) {
@@ -38,7 +39,19 @@ public class StockDAO extends ModelDAO implements IStockDAO {
     }
 
     @Override
-    public boolean addRecord(IBookInStock book) throws Exception {
+    public boolean addRecord(BookInstance book) throws Exception {
+        return false;
+    }
+
+    @Override
+    public List<BookInstance> getBookRequests() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public boolean deleteRecord(BookInstance book) {
+        // TODO Auto-generated method stub
         return false;
     }
 }

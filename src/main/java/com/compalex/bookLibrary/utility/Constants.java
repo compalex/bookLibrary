@@ -8,8 +8,6 @@ public class Constants {
     public static final String PATH_BOOK_CSV = "db/csv/books.csv";
     public static final String PATH_ORDER_SER = "db/ser/orders.ser";
     public static final String PATH_ORDER_CSV = "db/csv/orders.csv";
-    public static final String PATH_REQUEST_SER = "db/ser/bookRequests.ser";
-    public static final String PATH_REQUEST_CSV = "db/csv/bookRequests.csv";
     public static final String PATH_STOCK_SER = "db/ser/stock.ser";
     public static final String PATH_STOCK_CSV = "db/csv/stock.csv";
     public static final String PATH_CONFIG_PROPERTIES = "config.properties";
@@ -49,7 +47,6 @@ public class Constants {
     public enum Type {
         BOOK,
         ORDER,
-        REQUEST,
         STOCK,
         UNDEFINED
     }

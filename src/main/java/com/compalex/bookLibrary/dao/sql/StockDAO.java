@@ -1,30 +1,34 @@
 package com.compalex.bookLibrary.dao.sql;
 
-import java.sql.Connection;
 import java.util.List;
+import javax.persistence.Query;
+import org.hibernate.Session;
 import com.compalex.bookLibrary.api.dao.IStockDAO;
-import com.compalex.bookLibrary.api.model.IBookInStock;
 import com.compalex.bookLibrary.api.model.IModel;
+import com.compalex.bookLibrary.model.Book;
+import com.compalex.bookLibrary.model.BookInstance;
+import com.compalex.bookLibrary.utility.HibernateUtil;
 
 public class StockDAO extends ModelDAO implements IStockDAO {
-
-    public StockDAO(Connection connection) {
-        super(connection);
+    private Class<BookInstance> classType;
+    
+    public StockDAO() {
+        classType = BookInstance.class;
+    }
+    
+    @Override
+    public List<BookInstance> getStock() throws Exception {
+        return HibernateUtil.fetchAllObjects(classType);
     }
 
     @Override
-    public List<IBookInStock> getStock() throws Exception {
-        return null;
-    }
-
-    @Override
-    public boolean addRecord(IModel model) throws Exception {
+    public boolean addRecord(IModel model) {
         return false;
     }
 
     @Override
-    public boolean deleteRecord(int id) {
-        return false;
+    public boolean deleteRecord(BookInstance book) {
+        return super.deleteRecord(book);
     }
 
     @Override
@@ -33,7 +37,15 @@ public class StockDAO extends ModelDAO implements IStockDAO {
     }
 
     @Override
-    public boolean addRecord(IBookInStock book) throws Exception {
-        return false;
+    public boolean addRecord(BookInstance book) {
+        return super.addRecord(book);
+    }
+
+    @Override
+    public List<BookInstance> getBookRequests() {
+        Session session = HibernateUtil.getActiveSession(); 
+        session.beginTransaction();
+        Query q = session.createQuery("from bookInstance where book_type = 'request'");
+        return q.getResultList();
     }
 }
