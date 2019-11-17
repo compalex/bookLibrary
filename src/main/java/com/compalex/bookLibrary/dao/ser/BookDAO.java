@@ -34,19 +34,13 @@ public class BookDAO extends ModelDAO implements IBookDAO {
     }
 
     @Override
-    public String getBookDescriprion(int bookId) throws Exception {
-        List<Book> allBooks = getAllBooks();
-        
-        for(Book book : allBooks) {
-            if(book.getId() == bookId) {
-                return book.getDescription();
-            }
-        }
-        return Constants.ERROR;
+    public boolean addRecord(Book book) throws Exception {
+        return super.addRecord(book);
     }
 
     @Override
-    public boolean addRecord(Book book) throws Exception {
-        return super.addRecord(book);
+    public Book getBook(int bookId) {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

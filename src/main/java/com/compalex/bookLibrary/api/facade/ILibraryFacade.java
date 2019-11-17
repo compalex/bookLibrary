@@ -14,12 +14,11 @@ import com.compalex.bookLibrary.utility.Constants.StaleBookSort;
 public interface ILibraryFacade {
     List<Book> getAllBooks(BookSort sort) throws Exception;
     List<Order> getAllOrders(OrderSort sort) throws Exception;
-    Map<Book, Integer> getAllRequests(RequestSort sort) throws Exception;
     Map<Book, List<Date>> getStaleBooks(StaleBookSort sort) throws Exception;
     String getBookDescription(int bookId) throws Exception;
     boolean addOrder(Order order);
     boolean addBookToStock(Book book) throws Exception;
     Order getCopyOfOrder(int id) throws Exception;
     boolean addRequest(BookInstance request);
-    Map<Book, Integer> getBookRequests(RequestSort byAlphabet);
+    List<Book> getBookRequests(RequestSort byAlphabet) throws Exception;
 }

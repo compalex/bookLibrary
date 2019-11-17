@@ -27,24 +27,6 @@ public class StockService implements IStockService {
     }
     
     @Override
-    public Map<Book, Integer> getBookRequests() {
-        List<BookInstance> bookRequests = stockDAO.getBookRequests();
-        System.out.println(bookRequests);
-        Map<Book, Integer> map = new HashMap<>();
-        Book book = null;
-
-        for(BookInstance bookInstance : bookRequests) {
-            book = bookInstance.getBook();
-            if(map.get(book) == null) {
-                map.put(book, 1);
-            } else {
-                map.put(book, map.get(book) + 1);
-            }          
-        }
-        return map;
-    }
-    
-    @Override
     public List<BookInstance> getStock() throws Exception {
         return stockDAO.getStock();
     }

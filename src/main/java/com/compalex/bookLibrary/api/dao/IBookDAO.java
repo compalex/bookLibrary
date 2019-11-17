@@ -5,6 +5,6 @@ import com.compalex.bookLibrary.model.Book;
 
 public interface IBookDAO {
     List<Book> getAllBooks() throws Exception;
-    String getBookDescriprion(int bookId) throws Exception; 
     boolean addRecord(Book book) throws Exception;
+    Book getBook(int bookId);
 }

@@ -1,5 +1,6 @@
 package com.compalex.bookLibrary.service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -49,8 +50,21 @@ public class BookService implements IBookService {
     }
     
     @Override
+    public List<Book> getBookRequests() throws Exception {
+        List<Book> allBooks = bookDAO.getAllBooks();
+        List<Book> bookWithRequests = new ArrayList<>();
+        
+        for(Book book : allBooks) {
+            if(book.getBookRequests().size() > 0) {
+                bookWithRequests.add(book);
+            }
+        }
+        return bookWithRequests;
+    }
+    
+    @Override
     public String getBookDescription(int bookId) throws Exception {
-        return bookDAO.getBookDescriprion(bookId);
+        return bookDAO.getBook(bookId).getDescription();
     }
     
     @Override

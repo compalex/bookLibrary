@@ -28,12 +28,6 @@ public class StockDAO extends ModelDAO implements IStockDAO {
     }
 
     @Override
-    public List<BookInstance> getBookRequests() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
     public boolean deleteRecord(BookInstance book) {
         // TODO Auto-generated method stub
         return false;

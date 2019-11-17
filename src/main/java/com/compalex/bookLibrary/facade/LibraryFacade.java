@@ -54,8 +54,8 @@ public class LibraryFacade implements ILibraryFacade {
     }
 
     @Override
-    public Map<Book, Integer> getAllRequests(RequestSort sort) throws Exception {
-        return stockService.getBookRequests();
+    public List<Book> getBookRequests(RequestSort sort) throws Exception {
+        return bookService.getBookRequests();
     }
 
     @Override
@@ -76,10 +76,5 @@ public class LibraryFacade implements ILibraryFacade {
     @Override
     public boolean addRequest(BookInstance request) {
         return false;
-    }
-
-    @Override
-    public Map<Book, Integer> getBookRequests(RequestSort byAlphabet) {
-        return stockService.getBookRequests();
     }
 }

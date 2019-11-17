@@ -8,6 +8,5 @@ import com.compalex.bookLibrary.model.BookInstance;
 
 public interface IStockService {
     List<BookInstance> getStock() throws Exception;
-    Map<Book, Integer> getBookRequests();
     void deleteRequests(Book book);
 }

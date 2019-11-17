@@ -13,7 +13,6 @@ public class ModelDAO implements IModelDAO {
         Session session = HibernateUtil.getActiveSession();
         Transaction transaction = session.beginTransaction();
         session.save(model);
-        System.out.println("sup");
         transaction.commit();
         return true;
     }
@@ -30,6 +29,4 @@ public class ModelDAO implements IModelDAO {
         // TODO Auto-generated method stub
         return false;
     }
-    
-    
 }

@@ -30,13 +30,13 @@ public class Demo {
         facade = LibraryFacade.getInstance();   
         try {
             //showBooks(BookSort.BY_TITLE);
-            addBookToStock();
+            //addBookToStock();
             //showOrders(OrderSort.BY_PRICE);
             //showBookRequests(RequestSort.BY_ALPHABET);
             //showStaleBooks(StaleBookSort.BY_DATE);
-            //showBookDescription(2);
+            showBookDescription(3);
             //copyAnOrder(3);
-            addBook();
+            //addBook();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -87,13 +87,13 @@ public class Demo {
     }
     
     private static void showBookRequests(RequestSort sort) throws Exception {
-        Map<Book, Integer> bookRequests = facade.getBookRequests(RequestSort.BY_ALPHABET);
+        List<Book> books = facade.getBookRequests(RequestSort.BY_ALPHABET);
         
-        for(Book book : bookRequests.keySet()) {
+        for(Book book : books) {
             System.out.println("__ __ ___ __ ___");
             System.out.println(book.getId() + ". " + book.getTitle());
             System.out.println(book.getPrice());
-            System.out.println(bookRequests.get(book) + " requests");
+            System.out.println(book.getBookRequests().size() + " requests");
         }
     }
     

@@ -40,12 +40,4 @@ public class StockDAO extends ModelDAO implements IStockDAO {
     public boolean addRecord(BookInstance book) {
         return super.addRecord(book);
     }
-
-    @Override
-    public List<BookInstance> getBookRequests() {
-        Session session = HibernateUtil.getActiveSession(); 
-        session.beginTransaction();
-        Query q = session.createQuery("from bookInstance where book_type = 'request'");
-        return q.getResultList();
-    }
 }
